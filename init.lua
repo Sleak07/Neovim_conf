@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Set the leader key before anything else
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 -- Initialize lazy with dynamic loading of anything in the plugins directory
 require("lazy").setup("plugins", {
