@@ -1,5 +1,4 @@
--- here goes the plugin manager
-
+-- Path for lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -13,16 +12,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- This has to be set before initializing lazy
+-- Set the leader key before anything else
 vim.g.mapleader = " "
 
 -- Initialize lazy with dynamic loading of anything in the plugins directory
-require("lazy").setup("plugins",{
-   change_detection = {
-    enabled = true, -- automatically check for config file changes and reload the ui
+require("lazy").setup("plugins", {
+  change_detection = {
+    enabled = true, -- automatically check for config file changes and reload the UI
     notify = false, -- turn off notifications whenever plugin changes are made
   },
 })
 
+-- Load core settings
 require("core.keymaps")
 require("core.options")
